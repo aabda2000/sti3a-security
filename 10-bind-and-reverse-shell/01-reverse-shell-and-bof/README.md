@@ -18,19 +18,17 @@ On démarre netcat sur le port 4444
 
 Où l'on suppose avoir installé le programme vulnérable au débordement de tampon (Buffer Overflow). Un petit programme en C fera l'affaire : 
 
-#include <stdio.h
-
+```c
+#include <stdio.h>
 #include <unistd.h>
 
 /* Compile: gcc -fno-stack-protector -z execstack demo_msf.c -o demo_msf -g */
 
-int vuln(){
-
+int vuln() {
     char buffer[600];
-    
     int characters_read;
     
-        //printf("bufer =%p\n",buffer);
+    // printf("bufer =%p\n",buffer);
         
     printf("Enter message:\n");
     
@@ -41,13 +39,11 @@ int vuln(){
     return 0;
 }
 
-void main(){
-
+void main() {
     vuln();
-    
-        //atterissage après retour de vuln  
+    // atterissage après retour de vuln  
 }
-
+```
 
 ## Principe
 
